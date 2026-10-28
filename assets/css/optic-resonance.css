@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap');
+@import url('./optic-tokens.css');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  min-height: 100vh;
+  transition: background 0.8s var(--optic-ease-cinematic), color 0.8s var(--optic-ease-cinematic);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 主题模式：默认美术馆微暖素白 */
+body.theme-gallery {
+  background: var(--optic-gallery-bg-gradient);
+  background-color: var(--optic-gallery-bg);
+  color: var(--optic-gallery-text);
+}
+
+/* 主题模式：黑曜深邃暗夜 */
+body.theme-obsidian {
+  background: var(--optic-obsidian-bg-gradient);
+  background-color: var(--optic-obsidian-bg);
+  color: var(--optic-obsidian-text);
+}
+
+/* 顶部悬浮微气泡导航 (Ghost Island) */
+.ghost-nav {
+  position: fixed;
+  top: var(--optic-space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--optic-space-4);
+  padding: var(--optic-space-2) var(--optic-space-6);
+  border-radius: var(--optic-radius-full);
+  backdrop-filter: var(--optic-blur-md);
+  -webkit-backdrop-filter: var(--optic-blur-md);
+  box-shadow: var(--optic-elevation-2);
+  transition: all 0.3s var(--optic-ease-cinematic);
+}
+
+.theme-gallery .ghost-nav {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--optic-gallery-border);
+}
+
+.theme-obsidian .ghost-nav {
+  background: rgba(18, 22, 30, 0.65);
+  border: 1px solid var(--optic-obsidian-border);
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: var(--optic-space-2);
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--optic-cyan);
+  box-shadow: 0 0 10px var(--optic-cyan);
+  animation: pulse-glow 3s infinite var(--optic-ease-breath);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 16px var(--optic-cyan); }
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--optic-space-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  opacity: 1;
+  transform: rotate(20deg);
+}
+
+/* 核心视界容器 */
+.viewport-stage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--optic-space-16) + 30px) var(--optic-space-6) var(--optic-space-16);
+}
+
+/* 序章：单一核心沉浸标题 (Hero) */
+.hero-sculpture {
+  text-align: center;
+  padding: var(--optic-space-12) 0 var(--optic-space-16);
+  perspective: 1200px;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: var(--optic-space-3);
+  opacity: 0.45;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: var(--optic-space-4);
+  background: linear-gradient(135deg, currentColor 20%, rgba(120, 130, 150, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.65;
+  font-weight: 300;
+}
+
+/* 交互实验室展台 (Interactive Labs) */
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: var(--optic-space-8);
+  margin-top: var(--optic-space-8);
+}
+
+.lab-card {
+  border-radius: var(--optic-radius-lg);
+  padding: var(--optic-space-8);
+  position: relative;
+  transition: transform 0.4s var(--optic-ease-cinematic), box-shadow 0.4s var(--optic-ease-cinematic);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.theme-gallery .lab-card {
+  background: var(--optic-gallery-surface);
+  border: 1px solid var(--optic-gallery-border);
+  box-shadow: var(--optic-elevation-1);
+}
+
+.theme-gallery .lab-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--optic-elevation-2), var(--optic-glow-warm);
+}
+
+.theme-obsidian .lab-card {
+  background: var(--optic-obsidian-surface);
+  border: 1px solid var(--optic-obsidian-border);
+  box-shadow: var(--optic-elevation-1);
+}
+
+.theme-obsidian .lab-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--optic-elevation-2), var(--optic-glow-cyan);
+}
+
+.lab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--optic-space-4);
+}
+
+.lab-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--optic-radius-full);
+  opacity: 0.55;
+  border: 1px solid currentColor;
+}
+
+.lab-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: var(--optic-space-2);
+}
+
+.lab-desc {
+  font-size: 0.9rem;
+  opacity: 0.55;
+  margin-bottom: var(--optic-space-6);
+  line-height: 1.6;
+}
+
+/* 格式塔演示容器 */
+.gestalt-demo-box {
+  padding: var(--optic-space-6);
+  border-radius: var(--optic-radius-md);
+  margin-bottom: var(--optic-space-4);
+  background: rgba(125, 125, 125, 0.05);
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--demo-gap, 8px);
+  transition: all 0.4s var(--optic-ease-spring);
+}
+
+.demo-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cluster-gap, 6px);
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(125, 125, 125, 0.08);
+  transition: all 0.3s ease;
+}
+
+.demo-dot {
+  width: 32px;
+  height: 8px;
+  border-radius: 4px;
+  background: currentColor;
+  opacity: 0.75;
+}
+
+/* 滑块控制器 */
+.slider-control {
+  display: flex;
+  align-items: center;
+  gap: var(--optic-space-4);
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.slider-control input[type="range"] {
+  flex: 1;
+  accent-color: #38bdf8;
+}
+
+/* Tokens 快速查阅面板 */
+.tokens-strip {
+  margin-top: var(--optic-space-16);
+  padding: var(--optic-space-8);
+  border-radius: var(--optic-radius-lg);
+  backdrop-filter: var(--optic-blur-md);
+}
+
+.theme-gallery .tokens-strip {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--optic-gallery-border);
+}
+
+.theme-obsidian .tokens-strip {
+  background: rgba(20, 25, 35, 0.5);
+  border: 1px solid var(--optic-obsidian-border);
+}
+
+.token-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--optic-space-3);
+  margin-top: var(--optic-space-4);
+}
+
+.token-pill {
+  font-family: monospace;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: var(--optic-radius-sm);
+  background: rgba(125, 125, 125, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.token-pill:hover {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+/* 响应式调整与移动端安全防御 */
+@media (max-width: 768px) {
+  .ghost-nav {
+    top: calc(var(--optic-space-3) + var(--optic-sat));
+    padding: var(--optic-space-2) var(--optic-space-4);
+    width: calc(100% - 32px);
+    max-width: 420px;
+    justify-content: space-between;
+  }
+
+  .viewport-stage {
+    padding: calc(var(--optic-space-16) + 48px + var(--optic-sat)) var(--optic-space-4) calc(var(--optic-space-12) + var(--optic-sab));
+  }
+
+  .hero-sculpture {
+    padding: var(--optic-space-8) 0 var(--optic-space-10);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .lab-grid {
+    grid-template-columns: 1fr;
+    gap: var(--optic-space-6);
+  }
+
+  .lab-card {
+    padding: var(--optic-space-5);
+  }
+
+  .lab-header {
+    flex-wrap: wrap;
+    gap: var(--optic-space-2);
+  }
+
+  .slider-control {
+    flex-wrap: wrap;
+    gap: var(--optic-space-2);
+  }
+
+  .slider-control input[type="range"] {
+    min-width: 120px;
+  }
+
+  .tokens-strip {
+    padding: var(--optic-space-5);
+    margin-top: var(--optic-space-10);
+  }
+}

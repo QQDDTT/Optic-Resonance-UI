@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Optic-Resonance | 视界共鸣 · 顶层 UI 设计与视觉心理学中枢</title>
+  <meta name="description" content="基于格式塔视觉心理学、信息控制论与系统完形同构的跨工程顶层 UI 设计系统与美学基准。">
+  <link rel="stylesheet" href="./assets/css/optic-resonance.css">
+</head>
+<body class="theme-gallery">
+
+  <!-- 顶部极简浮空微胶囊导航 -->
+  <nav class="ghost-nav" aria-label="全局导航">
+    <div class="nav-brand">
+      <div class="nav-dot"></div>
+      <span>Optic Resonance</span>
+    </div>
+    <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换色温模式" title="切换素白/暗夜">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <main class="viewport-stage">
+    <!-- 序章：单一核心沉浸标题 -->
+    <header class="hero-sculpture">
+      <p class="hero-subtitle">Visual Psychology & System Resonance</p>
+      <h1 class="hero-title">视界共鸣</h1>
+      <p class="hero-description">
+        以视觉与心理决定设计方案。探索格式塔完形同构、信息控制论与认知降负在现代数字界面中的系统级涌现。
+      </p>
+    </header>
+
+    <!-- 交互实验室展台 -->
+    <section class="lab-grid" aria-label="视觉心理实验展台">
+      
+      <!-- 实验 1: 格式塔接近律与认知分组 -->
+      <article class="lab-card tilt-card" id="card-gestalt">
+        <div class="lab-header">
+          <span class="lab-tag">Gestalt · Proximity</span>
+          <span style="font-size: 0.8rem; opacity: 0.4;">LAW 01</span>
+        </div>
+        <h2 class="lab-title">接近律：以空白取代线条</h2>
+        <p class="lab-desc">
+          拖动滑块调节两组元素之间的间距。观察眼脑如何在无任何边框线条的辅助下，自发完成意义重组。
+        </p>
+
+        <div class="gestalt-demo-box" id="proximity-demo" style="--demo-gap: 28px;">
+          <div class="demo-cluster">
+            <div class="demo-dot"></div>
+            <div class="demo-dot"></div>
+          </div>
+          <div class="demo-cluster">
+            <div class="demo-dot"></div>
+            <div class="demo-dot"></div>
+          </div>
+        </div>
+
+        <div class="slider-control">
+          <span>间距:</span>
+          <input type="range" id="proximity-slider" min="6" max="64" value="28" aria-label="元素组间距调节">
+          <span id="proximity-value" style="font-family: monospace; font-size: 0.8rem;">28px (感知为清晰两组)</span>
+        </div>
+      </article>
+
+      <!-- 实验 2: 3D 景深与多层环境漫反射 -->
+      <article class="lab-card tilt-card" id="card-elevation">
+        <div class="lab-header">
+          <span class="lab-tag">Spatial · Elevation</span>
+          <span style="font-size: 0.8rem; opacity: 0.4;">DEPTH 02</span>
+        </div>
+        <h2 class="lab-title">空间纵深：微磨砂与透视悬浮</h2>
+        <p class="lab-desc">
+          移动光标在本卡片内漫游。感受带有质量与物理阻尼的 3D 视差倾斜（Parallax Tilt）与环境光晕漫反射。
+        </p>
+        <div style="padding: 24px; border-radius: 12px; background: rgba(125, 125, 125, 0.05); text-align: center;">
+          <div style="font-size: 0.85rem; letter-spacing: 0.1em; opacity: 0.7;">PERSPECTIVE: 1000PX</div>
+          <div style="font-size: 0.75rem; opacity: 0.4; margin-top: 6px;">MAX TILT: ±6.0 DEG</div>
+        </div>
+      </article>
+
+      <!-- 实验 3: 认知去摩擦与去文字化 -->
+      <article class="lab-card tilt-card" id="card-cognition">
+        <div class="lab-header">
+          <span class="lab-tag">Cybernetics · Clarity</span>
+          <span style="font-size: 0.8rem; opacity: 0.4;">FLOW 03</span>
+        </div>
+        <h2 class="lab-title">无说教意会：状态自解释</h2>
+        <p class="lab-desc">
+          剥离保姆式长篇操作指引。依靠柔和的微光反馈、清晰的物理微动效和高信噪比，达成无摩擦的人机心流。
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; padding: 20px 0;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(56, 189, 248, 0.15); color: #38bdf8; box-shadow: var(--optic-glow-cyan);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </div>
+          <div style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(168, 85, 247, 0.15); color: #a855f7; box-shadow: var(--optic-glow-purple);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 设计令牌快速查阅 -->
+    <section class="tokens-strip" aria-label="核心设计令牌">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;">核心设计令牌 (Click to Copy)</h3>
+        <span style="font-size: 0.8rem; opacity: 0.5;">v1.0.0</span>
+      </div>
+      <div class="token-badges">
+        <span class="token-pill" data-token="var(--optic-gallery-bg)">--optic-gallery-bg</span>
+        <span class="token-pill" data-token="var(--optic-obsidian-bg)">--optic-obsidian-bg</span>
+        <span class="token-pill" data-token="var(--optic-glow-warm)">--optic-glow-warm</span>
+        <span class="token-pill" data-token="var(--optic-glow-cyan)">--optic-glow-cyan</span>
+        <span class="token-pill" data-token="var(--optic-elevation-2)">--optic-elevation-2</span>
+        <span class="token-pill" data-token="var(--optic-ease-cinematic)">--optic-ease-cinematic</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="./assets/js/optic-resonance.js"></script>
+</body>
+</html>
